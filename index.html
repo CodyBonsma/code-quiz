@@ -6,31 +6,40 @@
     <title>Code Quiz</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
+    <!-- this will hold the top navbar which includes the time count and high score btn -->
+   
     <!-- this will hold the main page/container -->
     <main>
       <container class="container main-container">
-        <div class="container sub-container">
+        <div class="container loading-container">
           <h2 id="main-header">Coding Quiz Challenge</h2>
           <div>
             <p>
               Answer as many questions correctly as you can. But be wary! Wrong
               answers will cost you 15 seconds on the timer.
             </p>
-            <button>Start Quiz</button>
+            <button class="btn btn-dark" id="start-btn">Start Quiz</button>
           </div>
         </div>
+        <!-- this div will hold the questions -->
         <div id="question-container" class="hide">
-            <div id="question">Question</div>
-            <div id="answer-buttons" class="btn-grid">
-                <button class="btn">Answer 1</button>
-                <button class="btn">Answer 2</button>
-                <button class="btn">Answer 3</button>
-                <button class="btn">Answer 4</button>
-            </div>
+          <div id="question">Question</div>
+          <div id="answer-buttons" class="btn-grid">
+            <button id="A" class="btn btn-dark">A</button>
+            <button id="B" class="btn btn-dark">B</button>
+            <button id="C" class="btn btn-dark">C</button>
+            <button id="D" class="btn btn-dark">D</button>
+          </div>
         </div>
       </container>
     </main>

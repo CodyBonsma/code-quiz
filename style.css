@@ -1,0 +1,16 @@
+.main-container{
+    margin: 50%;
+    text-align: center;
+    padding: 50px;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn{
+    background: purple;
+}

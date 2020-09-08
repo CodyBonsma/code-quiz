@@ -1,5 +1,21 @@
 console.log("Hello World");
 
+// grab all the html elements here
+var questionContainer = document.getElementById("question-container");
+var loadingContainer = document.getElementById("loading-container");
+var startButton = document.getElementById("start-btn");
+var question = document.getElementById("question-title");
+// target possible answer options
+var answerOptionA = document.getElementById("A");
+var answerOptionB = document.getElementById("B");
+var answerOptionC = document.getElementById("C");
+var answerOptionD = document.getElementById("D");
+
+
+// this style input hides the question container on the html page 
+// questionContainer.style.display = "none";
+
+
 // Starting page: we have a header, brief description of the quiz and a 'start quiz' button.
 // Once clicked, a countdown timer starts and the first question is introduced
 // timer and high-score link have a fixed position in the top of the screen

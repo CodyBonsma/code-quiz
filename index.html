@@ -20,7 +20,7 @@
 
     <!-- this will hold the main page/container -->
     <main>
-      <container class="container main-container">
+      <container class="container main-container m-auto">
         <div class="container main-container m-auto" id="loading-container">
           <h2 id="main-header">Coding Quiz Challenge</h2>
           <div>
@@ -41,16 +41,17 @@
               id="exampleFormControlInput1"
               placeholder="name@example.com"
             />
+            <button id="submit-btn" type="button" class="btn btn-dark">Submit</button>
           </div>
         </div>
         <!-- this div will hold the questions -->
         <div id="question-container" class="hide">
           <div id="question-title">Question</div>
-          <div id="answer-options" class="btn-grid">
-            <button id="A" class="btn btn-dark">A</button>
-            <button id="B" class="btn btn-dark">B</button>
-            <button id="C" class="btn btn-dark">C</button>
-            <button id="D" class="btn btn-dark">D</button>
+          <div id="answer-options" class="btn-group-vertical">
+            <button id="A" class="btn opt btn-dark">A</button>
+            <button id="B" class="btn opt btn-dark">B</button>
+            <button id="C" class="btn opt btn-dark">C</button>
+            <button id="D" class="btn opt btn-dark">D</button>
           </div>
         </div>
       </container>

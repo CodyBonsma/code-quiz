@@ -3,6 +3,8 @@ console.log("Hello World");
 // grab all the html elements here
 var questionContainer = document.getElementById("question-container");
 var loadingContainer = document.getElementById("loading-container");
+var submissionContainer = document.getElementById("submission-form");
+var submitButton = document.getElementById("submit-btn");
 var startButton = document.getElementById("start-btn");
 var question = document.getElementById("question-title");
 // target possible answer options

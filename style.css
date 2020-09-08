@@ -15,3 +15,10 @@ body{
     background: purple;
 }
 
+.opt{
+    margin: 10%;
+}
+
+#submit-btn{
+    margin: 8px;
+}

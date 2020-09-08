@@ -17,11 +17,11 @@
 
   <body>
     <!-- this will hold the top navbar which includes the time count and high score btn -->
-   
+
     <!-- this will hold the main page/container -->
     <main>
       <container class="container main-container">
-        <div class="container loading-container">
+        <div class="container main-container m-auto" id="loading-container">
           <h2 id="main-header">Coding Quiz Challenge</h2>
           <div>
             <p>
@@ -31,10 +31,22 @@
             <button class="btn btn-dark" id="start-btn">Start Quiz</button>
           </div>
         </div>
+        <!-- this will hold the submission form for the end of quiz -->
+        <div id="submission-form">
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="name@example.com"
+            />
+          </div>
+        </div>
         <!-- this div will hold the questions -->
         <div id="question-container" class="hide">
-          <div id="question">Question</div>
-          <div id="answer-buttons" class="btn-grid">
+          <div id="question-title">Question</div>
+          <div id="answer-options" class="btn-grid">
             <button id="A" class="btn btn-dark">A</button>
             <button id="B" class="btn btn-dark">B</button>
             <button id="C" class="btn btn-dark">C</button>

@@ -6,10 +6,10 @@ var loadingContainer = document.getElementById("loading-container");
 var startButton = document.getElementById("start-btn");
 var question = document.getElementById("question-title");
 // target possible answer options
-var answerOptionA = document.getElementById("A");
-var answerOptionB = document.getElementById("B");
-var answerOptionC = document.getElementById("C");
-var answerOptionD = document.getElementById("D");
+var answerChoiceA = document.getElementById("A");
+var answerChoiceB = document.getElementById("B");
+var answerChoiceC = document.getElementById("C");
+var answerChoiceD = document.getElementById("D");
 
 
 // this style input hides the question container on the html page 

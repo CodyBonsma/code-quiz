@@ -6,26 +6,35 @@
     <title>Code Quiz</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
+
   <body>
+    <!-- this will hold the main page/container -->
     <main>
-      <container>
-        <h1>Coding Quiz Challenge</h1>
-        <div class="row">
-        <div class="col-sm-4">
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum iure
-          aspernatur similique a deserunt. Asperiores modi perspiciatis
-          laudantium voluptates aspernatur? Minima ad, eveniet ipsum eius
-          temporibus aperiam deserunt magnam doloribus.
-        </p>
-        <button>Start Quiz</button>
-     </div>
-    </div>
-        </container>
+      <container class="container main-container">
+        <div class="container sub-container">
+          <h2 id="main-header">Coding Quiz Challenge</h2>
+          <div>
+            <p>
+              Answer as many questions correctly as you can. But be wary! Wrong
+              answers will cost you 15 seconds on the timer.
+            </p>
+            <button>Start Quiz</button>
+          </div>
+        </div>
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+        </div>
       </container>
     </main>
+
     <script src="./script.js"></script>
   </body>
 </html>

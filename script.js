@@ -14,8 +14,6 @@ var answerChoiceA = document.getElementById("A");
 var answerChoiceB = document.getElementById("B");
 var answerChoiceC = document.getElementById("C");
 var answerChoiceD = document.getElementById("D");
-//create a quiz page index
-var quizPageIndex = 0;
 
 // Starting page: we have a header, brief description of the quiz and a 'start quiz' button.
 // Once clicked, a countdown timer starts and the first question is introduced
@@ -143,18 +141,39 @@ function quizPageFive() {
 // right answers increase score var ++
 // activate next quiz page index --- repeat
 var counterPage = 0;
+var gamePoints = 0;
 
-answerOptionsEl.addEventListener("click", function(event){
-  if(event.target.value === "C"){
-    console.log("You clicked C!");
-  }
+answerOptionsEl.addEventListener("click", function (event) {
+  if (event.target.value === "C") {
+    gamePoints++;
+    console.log("You are correct! your score: " + gamePoints);
+  } else {
+    secondsLeft--;
+    secondsLeft = secondsLeft - 10;
+    console.log("Wrong answer!");
+  } 
   counterPage++
+  console.log(counterPage);
 
-// for each question initial style is block when counter goes up style has to be changed to none
-// and next question's style should be block.
-// and for each question you're going to have add the html to the page
+
+  if(counterPage === 1){
+    quizPageTwo();
+  } 
+
+  else if (counterPage === 2){
+    quizPageThree();
+  }
+
   
+  // for each question initial style is block when counter goes up style has to be changed to none
+  // and next question's style should be block.
+  // and for each question you're going to have add the html to the page
 });
+
+
+function resetQuestion(){
+
+}
 
 // When an option is selected, a new 'page' will pop up for the next quiz question
 // This process will repeat itself 5 times

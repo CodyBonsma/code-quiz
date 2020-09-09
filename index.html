@@ -6,6 +6,7 @@
     <title>Code Quiz</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- bootstrap link -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -17,44 +18,49 @@
 
   <body>
     <!-- this will hold the top navbar which includes the time count and high score btn -->
-
+    <nav class="navbar navbar-light bg-light fixed-top">
+      <a class="navbar-brand">High Scores</a>
+      <div>
+        <h2 id="timer">75</h2>
+      </div>
+    </nav>
     <!-- this will hold the main page/container -->
-    <main>
-      <container class="container main-container m-auto">
-        <div class="container main-container m-auto" id="loading-container">
-          <h2 id="main-header">Coding Quiz Challenge</h2>
-          <div>
-            <p>
-              Answer as many questions correctly as you can. But be wary! Wrong
-              answers will cost you 15 seconds on the timer.
-            </p>
-            <button class="btn btn-dark" id="start-btn">Start Quiz</button>
-          </div>
+    <main class="container main-container m-auto">
+      <div class="container" id="loading-container">
+        <h2 id="main-header">Coding Quiz Challenge</h2>
+        <div>
+          <p>
+            Answer as many questions correctly as you can. But be wary! Wrong
+            answers will cost you 15 seconds on the timer.
+          </p>
+          <button class="btn btn-dark" id="start-btn">Start Quiz</button>
         </div>
-        <!-- this will hold the submission form for the end of quiz -->
-        <div id="submission-form">
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Email address</label>
-            <input
-              type="email"
-              class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="name@example.com"
-            />
-            <button id="submit-btn" type="button" class="btn btn-dark">Submit</button>
-          </div>
+      </div>
+      <!-- this will hold the submission form for the end of quiz -->
+      <div id="submission-form">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+          />
+          <button id="submit-btn" type="button" class="btn btn-dark">
+            Submit
+          </button>
         </div>
-        <!-- this div will hold the questions -->
-        <div id="question-container" class="hide">
-          <div id="question-title">Question</div>
-          <div id="answer-options" class="btn-group-vertical">
-            <button id="A" class="btn opt btn-dark">A</button>
-            <button id="B" class="btn opt btn-dark">B</button>
-            <button id="C" class="btn opt btn-dark">C</button>
-            <button id="D" class="btn opt btn-dark">D</button>
-          </div>
+      </div>
+      <!-- this div will hold the questions -->
+      <div id="question-container" class="hide">
+        <div id="question-title">Question</div>
+        <div id="answer-options" class="btn-group-vertical">
+          <button id="A" class="btn opt btn-dark">A</button>
+          <button id="B" class="btn opt btn-dark">B</button>
+          <button id="C" class="btn opt btn-dark">C</button>
+          <button id="D" class="btn opt btn-dark">D</button>
         </div>
-      </container>
+      </div>
     </main>
 
     <script src="./script.js"></script>

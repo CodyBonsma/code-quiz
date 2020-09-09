@@ -4,18 +4,15 @@ console.log("Hello World");
 var questionContainer = document.getElementById("question-container");
 var loadingContainer = document.getElementById("loading-container");
 var submissionContainer = document.getElementById("submission-form");
+var countDownDisplay = document.getElementById("timer");
 var submitButton = document.getElementById("submit-btn");
 var startButton = document.getElementById("start-btn");
-var question = document.getElementById("question-title");
+var questionTitle = document.getElementById("question-title");
 // target possible answer options
 var answerChoiceA = document.getElementById("A");
 var answerChoiceB = document.getElementById("B");
 var answerChoiceC = document.getElementById("C");
 var answerChoiceD = document.getElementById("D");
-
-
-// this style input hides the question container on the html page 
-// questionContainer.style.display = "none";
 
 
 // Starting page: we have a header, brief description of the quiz and a 'start quiz' button.
@@ -28,64 +25,115 @@ var answerChoiceD = document.getElementById("D");
 // Each question will have 4 different options to choose from (only one is correct)
 // For each wrong answer, there is a 10 second timer penalty
 // Include an object array that holds the 5 different questions var quizQuestion array?
-var quizQuestions = [
+var quizQuestionsArray = [
   {
     questionOne: "Commonly used data types DO NOT include:",
-    answersOne: {
-      a: "strings",
-      b: "booleans",
-      c: "alerts",
-      d: "numbers",
-    },
-    correctAnswerOne: "c",
+      A: "strings",
+      B: "booleans",
+      C: "alerts",
+      D: "numbers",
+    correctAnswerOne: "C",
   },
   {
     questionTwo:
       "The condition in an if/else statement is enclosed within ______.",
-    answersTwo: {
-      a: "quotes",
-      b: "curly brackets",
-      c: "parentheses",
-      d: "square brackets",
-    },
-    correctAnswerTwo: "c",
+      A: "quotes",
+      B: "curly brackets",
+      C: "parentheses",
+      D: "square brackets",
+    correctAnswerTwo: "C",
   },
   {
     questionThree: "Arrays in JavaScript can be used to store _______.",
-    answersThree: {
-      a: "numbers and strings",
-      b: "other arrays",
-      c: "booleans",
-      d: "all of the above",
-    },
-    correctAnswerThree: "d",
+      A: "numbers and strings",
+      B: "other arrays",
+      C: "booleans",
+      D: "all of the above",
+    correctAnswerThree: "D",
   },
   {
     questionFour:
       "String values must be enclosed within ____ when being assigned to variables",
-    answersFour: {
-      a: "commas",
-      b: "curly brackets",
-      c: "quotes",
-      d: "parentheses",
-    },
-    correctAnswerFour: "c",
+      A: "commas",
+      B: "curly brackets",
+      C: "quotes",
+      D: "parentheses",
+    correctAnswerFour: "C",
   },
   {
     questionFive:
       "A very useful tool used during development and debugging for printing content to the debugger is:",
-    answersFive: {
-      a: "JavaScript",
-      b: "terminal/bash",
-      c: "for loops",
-      d: "console.log",
-    },
-    correctAnswerFive: "d",
+      A: "JavaScript",
+      B: "terminal/bash",
+      C: "for loops",
+      D: "console.log",
+    correctAnswerFive: "D",
   },
 ];
-console.log(quizQuestions);
+console.log(quizQuestionsArray);
 
+//create the addEventListener 
+//this starts the countdown timer, brings user to the first page 
+startButton.addEventListener("click", function(){
+  console.log("You clicked start!");
+  setTimer();
+  quizPageOne();
+  loadingContainer.style.display = "none";
+});
 
+var secondsLeft = 75;
+// create the timer function
+function setTimer(){
+  var timerInterval = setInterval(function(){
+    secondsLeft --
+    countDownDisplay.textContent = "Time left: " + secondsLeft
+    if(secondsLeft === 0 ){
+      clearInterval(timerInterval)
+      sendMessage();
+    }
+  }, 1000)
+}
+
+function quizPageOne(){
+  questionContainer.style.display = "block";
+  questionTitle.textContent = quizQuestionsArray[0]["questionOne"];
+  answerChoiceA.textContent = quizQuestionsArray[0]["A"];
+  answerChoiceB.textContent = quizQuestionsArray[0]["B"];
+  answerChoiceC.textContent = quizQuestionsArray[0]["C"];
+  answerChoiceD.textContent = quizQuestionsArray[0]["D"];
+}
+
+function quizPageTwo(){
+  questionTitle.textContent = quizQuestionsArray[1]["questionTwo"];
+  answerChoiceA.textContent = quizQuestionsArray[1]["A"];
+  answerChoiceB.textContent = quizQuestionsArray[1]["B"];
+  answerChoiceC.textContent = quizQuestionsArray[1]["C"];
+  answerChoiceD.textContent = quizQuestionsArray[1]["D"];
+}
+
+function quizPageThree(){
+  questionTitle.textContent = quizQuestionsArray[2]["questionThree"];
+  answerChoiceA.textContent = quizQuestionsArray[2]["A"];
+  answerChoiceB.textContent = quizQuestionsArray[2]["B"];
+  answerChoiceC.textContent = quizQuestionsArray[2]["C"];
+  answerChoiceD.textContent = quizQuestionsArray[2]["D"];
+}
+
+function quizPageFour(){
+  questionTitle.textContent = quizQuestionsArray[3]["questionFour"];
+  answerChoiceA.textContent = quizQuestionsArray[3]["A"];
+  answerChoiceB.textContent = quizQuestionsArray[3]["B"];
+  answerChoiceC.textContent = quizQuestionsArray[3]["C"];
+  answerChoiceD.textContent = quizQuestionsArray[3]["D"];
+}
+
+function quizPageFive(){
+  questionTitle.textContent = quizQuestionsArray[4]["questionFive"];
+  answerChoiceA.textContent = quizQuestionsArray[4]["A"];
+  answerChoiceB.textContent = quizQuestionsArray[4]["B"];
+  answerChoiceC.textContent = quizQuestionsArray[4]["C"];
+  answerChoiceD.textContent = quizQuestionsArray[4]["D"];
+}
 // When an option is selected, a new 'page' will pop up for the next quiz question
 // This process will repeat itself 5 times
 

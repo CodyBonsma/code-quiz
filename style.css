@@ -1,6 +1,19 @@
-.main-container{
-    margin: 50%;
-    align-content: center;
+#loading-container{
+    margin: 200px;
+    margin-left: 50px;
+    padding: 50px;
+}
+
+#question-container{
+    display: none;
+    margin: 200px;
+    margin-left: 50px;
+    padding: 50px;
+}
+#submission-form{
+    display: none;
+    margin: 200px;
+    margin-left: 50px;
     padding: 50px;
 }
 
@@ -9,7 +22,6 @@ body{
     justify-content: center;
     align-items: center;
 }
-
 
 .btn{
     background: purple;

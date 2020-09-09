@@ -2,6 +2,7 @@ console.log("Hello World");
 
 // grab all the html elements here
 var questionContainer = document.getElementById("question-container");
+var answerOptionsEl = document.getElementById("answer-options");
 var loadingContainer = document.getElementById("loading-container");
 var submissionContainer = document.getElementById("submission-form");
 var countDownDisplay = document.getElementById("timer");
@@ -13,7 +14,8 @@ var answerChoiceA = document.getElementById("A");
 var answerChoiceB = document.getElementById("B");
 var answerChoiceC = document.getElementById("C");
 var answerChoiceD = document.getElementById("D");
-
+//create a quiz page index
+var quizPageIndex = 0;
 
 // Starting page: we have a header, brief description of the quiz and a 'start quiz' button.
 // Once clicked, a countdown timer starts and the first question is introduced
@@ -28,53 +30,53 @@ var answerChoiceD = document.getElementById("D");
 var quizQuestionsArray = [
   {
     questionOne: "Commonly used data types DO NOT include:",
-      A: "strings",
-      B: "booleans",
-      C: "alerts",
-      D: "numbers",
+    A: "strings",
+    B: "booleans",
+    C: "alerts",
+    D: "numbers",
     correctAnswerOne: "C",
   },
   {
     questionTwo:
       "The condition in an if/else statement is enclosed within ______.",
-      A: "quotes",
-      B: "curly brackets",
-      C: "parentheses",
-      D: "square brackets",
+    A: "quotes",
+    B: "curly brackets",
+    C: "parentheses",
+    D: "square brackets",
     correctAnswerTwo: "C",
   },
   {
     questionThree: "Arrays in JavaScript can be used to store _______.",
-      A: "numbers and strings",
-      B: "other arrays",
-      C: "booleans",
-      D: "all of the above",
+    A: "numbers and strings",
+    B: "other arrays",
+    C: "booleans",
+    D: "all of the above",
     correctAnswerThree: "D",
   },
   {
     questionFour:
       "String values must be enclosed within ____ when being assigned to variables",
-      A: "commas",
-      B: "curly brackets",
-      C: "quotes",
-      D: "parentheses",
+    A: "commas",
+    B: "curly brackets",
+    C: "quotes",
+    D: "parentheses",
     correctAnswerFour: "C",
   },
   {
     questionFive:
       "A very useful tool used during development and debugging for printing content to the debugger is:",
-      A: "JavaScript",
-      B: "terminal/bash",
-      C: "for loops",
-      D: "console.log",
+    A: "JavaScript",
+    B: "terminal/bash",
+    C: "for loops",
+    D: "console.log",
     correctAnswerFive: "D",
   },
 ];
 console.log(quizQuestionsArray);
 
-//create the addEventListener 
-//this starts the countdown timer, brings user to the first page 
-startButton.addEventListener("click", function(){
+//create the addEventListener to start the quiz
+//this starts the countdown timer, brings user to the first page
+startButton.addEventListener("click", function () {
   console.log("You clicked start!");
   setTimer();
   quizPageOne();
@@ -83,18 +85,18 @@ startButton.addEventListener("click", function(){
 
 var secondsLeft = 75;
 // create the timer function
-function setTimer(){
-  var timerInterval = setInterval(function(){
-    secondsLeft --
-    countDownDisplay.textContent = "Time left: " + secondsLeft
-    if(secondsLeft === 0 ){
-      clearInterval(timerInterval)
+function setTimer() {
+  var timerInterval = setInterval(function () {
+    secondsLeft--;
+    countDownDisplay.textContent = "Time left: " + secondsLeft;
+    if (secondsLeft === 0) {
+      clearInterval(timerInterval);
       sendMessage();
     }
-  }, 1000)
+  }, 1000);
 }
 
-function quizPageOne(){
+function quizPageOne() {
   questionContainer.style.display = "block";
   questionTitle.textContent = quizQuestionsArray[0]["questionOne"];
   answerChoiceA.textContent = quizQuestionsArray[0]["A"];
@@ -103,7 +105,7 @@ function quizPageOne(){
   answerChoiceD.textContent = quizQuestionsArray[0]["D"];
 }
 
-function quizPageTwo(){
+function quizPageTwo() {
   questionTitle.textContent = quizQuestionsArray[1]["questionTwo"];
   answerChoiceA.textContent = quizQuestionsArray[1]["A"];
   answerChoiceB.textContent = quizQuestionsArray[1]["B"];
@@ -111,7 +113,7 @@ function quizPageTwo(){
   answerChoiceD.textContent = quizQuestionsArray[1]["D"];
 }
 
-function quizPageThree(){
+function quizPageThree() {
   questionTitle.textContent = quizQuestionsArray[2]["questionThree"];
   answerChoiceA.textContent = quizQuestionsArray[2]["A"];
   answerChoiceB.textContent = quizQuestionsArray[2]["B"];
@@ -119,7 +121,7 @@ function quizPageThree(){
   answerChoiceD.textContent = quizQuestionsArray[2]["D"];
 }
 
-function quizPageFour(){
+function quizPageFour() {
   questionTitle.textContent = quizQuestionsArray[3]["questionFour"];
   answerChoiceA.textContent = quizQuestionsArray[3]["A"];
   answerChoiceB.textContent = quizQuestionsArray[3]["B"];
@@ -127,13 +129,33 @@ function quizPageFour(){
   answerChoiceD.textContent = quizQuestionsArray[3]["D"];
 }
 
-function quizPageFive(){
+function quizPageFive() {
   questionTitle.textContent = quizQuestionsArray[4]["questionFive"];
   answerChoiceA.textContent = quizQuestionsArray[4]["A"];
   answerChoiceB.textContent = quizQuestionsArray[4]["B"];
   answerChoiceC.textContent = quizQuestionsArray[4]["C"];
   answerChoiceD.textContent = quizQuestionsArray[4]["D"];
 }
+
+// add eventListeners for the quizPages within?
+//creat quizpageindex for the different objects in the array
+// add conditionals for right answer else wrong and decrease time
+// right answers increase score var ++
+// activate next quiz page index --- repeat
+var counterPage = 0;
+
+answerOptionsEl.addEventListener("click", function(event){
+  if(event.target.value === "C"){
+    console.log("You clicked C!");
+  }
+  counterPage++
+
+// for each question initial style is block when counter goes up style has to be changed to none
+// and next question's style should be block.
+// and for each question you're going to have add the html to the page
+  
+});
+
 // When an option is selected, a new 'page' will pop up for the next quiz question
 // This process will repeat itself 5 times
 

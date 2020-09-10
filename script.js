@@ -32,7 +32,6 @@ var quizQuestionsArray = [
     B: "booleans",
     C: "numbers",
     D: "alerts",
-    correctAnswer: "D",
   },
   {
     questionTwo:
@@ -41,7 +40,6 @@ var quizQuestionsArray = [
     B: "curly brackets",
     C: "square brackets",
     D: "parentheses",
-    correctAnswer: "D",
   },
   {
     questionThree: "Arrays in JavaScript can be used to store _______.",
@@ -49,7 +47,6 @@ var quizQuestionsArray = [
     B: "other arrays",
     C: "booleans",
     D: "all of the above",
-    correctAnswer: "D",
   },
   {
     questionFour:
@@ -58,7 +55,6 @@ var quizQuestionsArray = [
     B: "curly brackets",
     C: "parentheses",
     D: "quotes",
-    correctAnswer: "D",
   },
   {
     questionFive:
@@ -67,7 +63,6 @@ var quizQuestionsArray = [
     B: "terminal/bash",
     C: "for loops",
     D: "console.log",
-    correctAnswer: "D",
   },
 ];
 console.log(quizQuestionsArray);
@@ -89,7 +84,6 @@ function setTimer() {
     countDownDisplay.textContent = "Time left: " + secondsLeft;
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
-      sendMessage();
     }
   }, 1000);
 }
@@ -197,6 +191,9 @@ function doneWithGame(){
   submissionContainer.style.display = "block";
   document.createElement
 }
+
+document.createElement("ul");
+
 // When an option is selected, a new 'page' will pop up for the next quiz question
 // This process will repeat itself 5 times
 

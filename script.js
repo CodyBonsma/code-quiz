@@ -21,10 +21,7 @@ var answerChoiceD = document.getElementById("D");
 
 // addEventListener for 'click' event
 
-// a new/adjusted page is loaded with the first quiz question
-// Each question will have 4 different options to choose from (only one is correct)
-// For each wrong answer, there is a 10 second timer penalty
-// Include an object array that holds the 5 different questions var quizQuestion array?
+// this array holds the various quiz questions in objects
 var quizQuestionsArray = [
   {
     questionOne: "Commonly used data types DO NOT include:",
@@ -67,15 +64,15 @@ var quizQuestionsArray = [
 ];
 console.log(quizQuestionsArray);
 
-//create the addEventListener to start the quiz
-//this starts the countdown timer, brings user to the first page
+
+//this evenLlistener starts the countdown timer, brings user to the first page
 startButton.addEventListener("click", function () {
   console.log("You clicked start!");
   setTimer();
   quizPageOne();
   loadingContainer.style.display = "none";
 });
-
+// a variable to hold the timer and seconds left 
 var secondsLeft = 75;
 // create the timer function
 function setTimer() {
@@ -88,6 +85,7 @@ function setTimer() {
   }, 1000);
 }
 
+// functions to hold the various iterations of the quiz questions linked to my html
 function quizPageOne() {
   questionContainer.style.display = "block";
   questionTitle.textContent = quizQuestionsArray[0]["questionOne"];
@@ -134,14 +132,10 @@ function quizPageFive() {
 }
 
 
-// add eventListeners for the quizPages within?
-//creat quizpageindex for the different objects in the array
-// add conditionals for right answer else wrong and decrease time
-// right answers increase score var ++
-// activate next quiz page index --- repeat
+//counter variable to track the different quiz questions
 var counterPage = 0;
 var gamePoints = 0;
-
+// event listener with event delegation (work in progress)
 answerOptionsEl.addEventListener("click", function (event) {
   var userChoice = event.target.value;
   counterPage++;
@@ -155,7 +149,7 @@ answerOptionsEl.addEventListener("click", function (event) {
     secondsLeft = secondsLeft - 10;
     console.log("Wrong answer!");
   }
-
+// iterations of the following quiz pages 
   if(counterPage === 1){
     quizPageTwo();
   }
@@ -176,11 +170,9 @@ answerOptionsEl.addEventListener("click", function (event) {
     questionContainer.style.display = "none"
     doneWithGame();
   }
-  // for each question initial style is block when counter goes up style has to be changed to none
-  // and next question's style should be block.
-  // and for each question you're going to have add the html to the page
 });
 
+// submission function that calls the last form
 function doneWithGame(){
   submissionContainer.style.display = "block";
   document.createElement

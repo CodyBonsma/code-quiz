@@ -134,12 +134,6 @@ function quizPageFive() {
 }
 
 
-function scoreTabulator() {
-  scoreTab = (100) + (secondsLeft *10)
-  trackedScore = trackedScore + scoreTab
-  userScore.textContent = (trackedScore)
-}
-
 // add eventListeners for the quizPages within?
 //creat quizpageindex for the different objects in the array
 // add conditionals for right answer else wrong and decrease time
@@ -190,9 +184,13 @@ answerOptionsEl.addEventListener("click", function (event) {
 function doneWithGame(){
   submissionContainer.style.display = "block";
   document.createElement
+  if (counterPage === 5) {
+    clearInterval(timerInterval);
+  }
 }
 
 document.createElement("ul");
+
 
 // When an option is selected, a new 'page' will pop up for the next quiz question
 // This process will repeat itself 5 times

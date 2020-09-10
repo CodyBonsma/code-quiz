@@ -39,12 +39,11 @@
       <!-- this will hold the submission form for the end of quiz -->
       <div id="submission-form">
         <div class="form-group">
-          <label for="exampleFormControlInput1">Email address</label>
+          <label for="exampleFormControlInput1">Submit your initials</label>
           <input
-            type="email"
+            type="name"
             class="form-control"
-            id="exampleFormControlInput1"
-            placeholder="name@example.com"
+            id="initials-div"
           />
           <button id="submit-btn" type="button" class="btn btn-dark">
             Submit
@@ -55,10 +54,10 @@
       <div id="question-container" class="hide">
         <div id="question-title">Question</div>
         <div id="answer-options" class="btn-group-vertical">
-          <button id="A" class="btn opt btn-dark"  data-correct="NO" value="A">A</button>
-          <button id="B" class="btn opt btn-dark"  data-correct="NO" value="B">B</button>
-          <button id="C" class="btn opt btn-dark"  data-correct="NO" value="C">C</button>
-          <button id="D" class="btn opt btn-dark"  data-correct="YES"value="D">D</button>
+          <button id="A" class="btn opt btn-dark"   value="A">A</button>
+          <button id="B" class="btn opt btn-dark"   value="B">B</button>
+          <button id="C" class="btn opt btn-dark"   value="C">C</button>
+          <button id="D" class="btn opt btn-dark"   value="D">D</button>
         </div>
       </div>
     </main>

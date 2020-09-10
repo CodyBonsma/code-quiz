@@ -30,18 +30,18 @@ var quizQuestionsArray = [
     questionOne: "Commonly used data types DO NOT include:",
     A: "strings",
     B: "booleans",
-    C: "alerts",
-    D: "numbers",
-    correctAnswerOne: "C",
+    C: "numbers",
+    D: "alerts",
+    correctAnswer: "D",
   },
   {
     questionTwo:
       "The condition in an if/else statement is enclosed within ______.",
     A: "quotes",
     B: "curly brackets",
-    C: "parentheses",
-    D: "square brackets",
-    correctAnswerTwo: "C",
+    C: "square brackets",
+    D: "parentheses",
+    correctAnswer: "D",
   },
   {
     questionThree: "Arrays in JavaScript can be used to store _______.",
@@ -49,16 +49,16 @@ var quizQuestionsArray = [
     B: "other arrays",
     C: "booleans",
     D: "all of the above",
-    correctAnswerThree: "D",
+    correctAnswer: "D",
   },
   {
     questionFour:
       "String values must be enclosed within ____ when being assigned to variables",
     A: "commas",
     B: "curly brackets",
-    C: "quotes",
-    D: "parentheses",
-    correctAnswerFour: "C",
+    C: "parentheses",
+    D: "quotes",
+    correctAnswer: "D",
   },
   {
     questionFive:
@@ -67,7 +67,7 @@ var quizQuestionsArray = [
     B: "terminal/bash",
     C: "for loops",
     D: "console.log",
-    correctAnswerFive: "D",
+    correctAnswer: "D",
   },
 ];
 console.log(quizQuestionsArray);
@@ -104,6 +104,7 @@ function quizPageOne() {
 }
 
 function quizPageTwo() {
+  questionContainer.style.display = "block";
   questionTitle.textContent = quizQuestionsArray[1]["questionTwo"];
   answerChoiceA.textContent = quizQuestionsArray[1]["A"];
   answerChoiceB.textContent = quizQuestionsArray[1]["B"];
@@ -112,6 +113,7 @@ function quizPageTwo() {
 }
 
 function quizPageThree() {
+  questionContainer.style.display = "block";
   questionTitle.textContent = quizQuestionsArray[2]["questionThree"];
   answerChoiceA.textContent = quizQuestionsArray[2]["A"];
   answerChoiceB.textContent = quizQuestionsArray[2]["B"];
@@ -120,6 +122,7 @@ function quizPageThree() {
 }
 
 function quizPageFour() {
+  questionContainer.style.display = "block";
   questionTitle.textContent = quizQuestionsArray[3]["questionFour"];
   answerChoiceA.textContent = quizQuestionsArray[3]["A"];
   answerChoiceB.textContent = quizQuestionsArray[3]["B"];
@@ -128,11 +131,19 @@ function quizPageFour() {
 }
 
 function quizPageFive() {
+  questionContainer.style.display = "block";
   questionTitle.textContent = quizQuestionsArray[4]["questionFive"];
   answerChoiceA.textContent = quizQuestionsArray[4]["A"];
   answerChoiceB.textContent = quizQuestionsArray[4]["B"];
   answerChoiceC.textContent = quizQuestionsArray[4]["C"];
   answerChoiceD.textContent = quizQuestionsArray[4]["D"];
+}
+
+
+function scoreTabulator() {
+  scoreTab = (100) + (secondsLeft *10)
+  trackedScore = trackedScore + scoreTab
+  userScore.textContent = (trackedScore)
 }
 
 // add eventListeners for the quizPages within?
@@ -144,37 +155,48 @@ var counterPage = 0;
 var gamePoints = 0;
 
 answerOptionsEl.addEventListener("click", function (event) {
-  if (event.target.value === "C") {
+  var userChoice = event.target.value;
+  counterPage++;
+  console.log(userChoice);
+  console.log("This is the counter: " + counterPage);
+  if (userChoice === "C") {
     gamePoints++;
     console.log("You are correct! your score: " + gamePoints);
   } else {
     secondsLeft--;
     secondsLeft = secondsLeft - 10;
     console.log("Wrong answer!");
-  } 
-  counterPage++
-  console.log(counterPage);
-
+  }
 
   if(counterPage === 1){
     quizPageTwo();
-  } 
+  }
 
-  else if (counterPage === 2){
+  if(counterPage === 2){
     quizPageThree();
   }
 
-  
+  if(counterPage === 3){
+    quizPageFour();
+  }
+
+  if(counterPage === 4){
+    quizPageFive();
+  }
+
+  if(counterPage === 5){
+    questionContainer.style.display = "none"
+    doneWithGame();
+  }
   // for each question initial style is block when counter goes up style has to be changed to none
   // and next question's style should be block.
   // and for each question you're going to have add the html to the page
 });
 
-
-function resetQuestion(){
-
+function doneWithGame(){
+  submissionContainer.style.display = "block";
+  document.createElement
 }
-
 // When an option is selected, a new 'page' will pop up for the next quiz question
 // This process will repeat itself 5 times
 
